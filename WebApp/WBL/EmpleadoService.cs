@@ -37,7 +37,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<EmpleadoEntity,TipoIdentificacionEntity>("exp.EmpleadoObtener", "IdEmpleado,IdTipoIdentificacion");
+                var result = sql.QueryAsync<EmpleadoEntity, TipoIdentificacionEntity>("exp.EmpleadoObtener", "IdEmpleado,IdTipoIdentificacion");
 
                 return await result;
             }
