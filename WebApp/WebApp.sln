@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WBL", "WBL\WBL.csproj", "{57EDCCE9-85FA-4148-8344-BA849C7BEE62}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{50CF184E-211E-4C43-91A3-0E1C91038A90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{57EDCCE9-85FA-4148-8344-BA849C7BEE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57EDCCE9-85FA-4148-8344-BA849C7BEE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57EDCCE9-85FA-4148-8344-BA849C7BEE62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CF184E-211E-4C43-91A3-0E1C91038A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CF184E-211E-4C43-91A3-0E1C91038A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CF184E-211E-4C43-91A3-0E1C91038A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CF184E-211E-4C43-91A3-0E1C91038A90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
