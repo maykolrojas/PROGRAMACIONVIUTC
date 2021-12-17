@@ -25,6 +25,10 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDIContainer();
+            services.AddConfigHttpClient(Configuration: Configuration);
+            services.AddHttpContextAccessor();
+
+
             services.AddRazorPages().AddJsonOptions(option =>
             {
                 option.JsonSerializerOptions.DictionaryKeyPolicy = null;

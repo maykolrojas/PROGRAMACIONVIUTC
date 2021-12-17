@@ -44,16 +44,16 @@ namespace WebApp
 
         }
 
-        #region Usuario
+        //#region Usuario
 
-        public async Task<UsuariosEntity> UsuarioLogin(UsuariosEntity entity)
-        {
+        //public async Task<UsuariosEntity> UsuarioLogin(UsuariosEntity entity)
+        //{
 
-            var result = await client.ServicioPostAsync<UsuariosEntity>("api/Usuarios/Login", entity);
+        //    var result = await client.ServicioPostAsync<UsuariosEntity>("api/Usuarios/Login", entity);
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        #endregion
+        //#endregion
     }
 }
