@@ -11,14 +11,22 @@ namespace WebApp.Pages.Empleado
 {
     public class EditModel : PageModel
     {
-        private readonly IEmpleadoService empleadoService;
-        private readonly ITipoIdentificacionService tipoIdentificacionService;
+        private readonly ServiceApi service;
 
-        public EditModel(IEmpleadoService empleadoService, ITipoIdentificacionService tipoIdentificacionService)
+        public EditModel(ServiceApi service )
         {
-            this.empleadoService = empleadoService;
-            this.tipoIdentificacionService = tipoIdentificacionService;
+            this.service = service;
         }
+
+
+        //private readonly IEmpleadoService empleadoService;
+        //private readonly ITipoIdentificacionService tipoIdentificacionService;
+
+        //public EditModel(IEmpleadoService empleadoService, ITipoIdentificacionService tipoIdentificacionService)
+        //{
+        //    this.empleadoService = empleadoService;
+        //    this.tipoIdentificacionService = tipoIdentificacionService;
+        //}
 
         [BindProperty]
         public EmpleadoEntity Entity { get; set; } = new EmpleadoEntity();
@@ -26,7 +34,33 @@ namespace WebApp.Pages.Empleado
 
         [BindProperty(SupportsGet = true)]
         public int? id { get; set; }
-      
+
+
+        //public async Task<IActionResult> OnGet()
+        //{
+        //    try
+        //    {
+        //        if (id.HasValue)
+        //        {
+        //            Entity = await empleadoService.GetById(new() { IdEmpleado = id });
+        //        }
+
+        //        TipoIdentificacionLista = await tipoIdentificacionService.GetLista();
+
+        //        return Page();
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        return Content(ex.Message);
+        //    }
+
+
+        //}
+
+
+
+
 
         public async Task<IActionResult> OnGet()
         {
@@ -34,10 +68,10 @@ namespace WebApp.Pages.Empleado
             {
                 if (id.HasValue)
                 {
-                    Entity = await empleadoService.GetById(new() { IdEmpleado = id });
+                    Entity = await service.EmpleadoGetById( id: id.Value);
                 }
 
-                TipoIdentificacionLista = await tipoIdentificacionService.GetLista();
+                TipoIdentificacionLista = await service.TipoIdentificacionGetLista();
 
                 return Page();
             }
@@ -46,40 +80,8 @@ namespace WebApp.Pages.Empleado
 
                 return Content(ex.Message);
             }
-        
-        
-        }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
 
-            try
-            {
-                //Metodo Actualizar
-                if (Entity.IdEmpleado.HasValue)
-                {
-                    var result = await empleadoService.Update(Entity);
-
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se ha actualizado";
-                }
-                else
-                {
-                    var result = await empleadoService.Create(Entity);
-
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se ha insertado";
-                }
-
-                return RedirectToPage("Grid");
-            }
-            catch (Exception ex)
-            {
-
-                return Content(ex.Message);
-            }
-        
-        
         }
 
 
@@ -87,6 +89,47 @@ namespace WebApp.Pages.Empleado
 
 
 
+
+
+
+
+
+
+
+
+
+
+        //public async Task<IActionResult> OnPostAsync()
+        //{
+
+        //    try
+        //    {
+        //        //Metodo Actualizar
+        //        if (Entity.IdEmpleado.HasValue)
+        //        {
+        //            var result = await empleadoService.Update(Entity);
+
+        //            if (result.CodeError != 0) throw new Exception(result.MsgError);
+        //            TempData["Msg"] = "El registro se ha actualizado";
+        //        }
+        //        else
+        //        {
+        //            var result = await empleadoService.Create(Entity);
+
+        //            if (result.CodeError != 0) throw new Exception(result.MsgError);
+        //            TempData["Msg"] = "El registro se ha insertado";
+        //        }
+
+        //        return RedirectToPage("Grid");
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        return Content(ex.Message);
+        //    }
+        
+        
+        //}
 
 
     }
